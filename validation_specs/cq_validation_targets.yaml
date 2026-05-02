@@ -1,0 +1,141 @@
+checks:
+  - check_id: cq1_extracted_equipment
+    description: Check which equipment was extracted from the datasheet.
+    expected_result_key: cq1_extracted_equipment
+    allowed_query_type: read_only
+    instruction: >
+      Generate a read-only Cypher query that answers the competency question:
+      Which equipment was extracted from each datasheet?
+
+      Use the graph semantics where Datasheet nodes describe Equipment nodes.
+      If an Equipment node is connected to an EquipmentType node, include the normalized
+      equipment type information.
+
+      Return only scalar properties. Do not return nodes, relationships, or paths.
+      Use only the labels, relationships, and properties listed in the system prompt.
+      Do not invent property names.
+
+      Required output columns:
+      datasheet_id, file_name, document_type, equipment_id, product_model,
+      manufacturer, raw_equipment_type, normalized_equipment_type,
+      normalized_equipment_type_display_name.
+
+      Every returned expression must have an explicit AS alias.
+
+  - check_id: cq2_technical_parameters
+    description: Check which technical parameters were extracted for each equipment.
+    expected_result_key: cq2_technical_parameters
+    allowed_query_type: read_only
+    instruction: >
+      Generate a read-only Cypher query that answers the competency question:
+      Which technical parameters were extracted for each equipment?
+
+      Use the graph semantics where Equipment nodes have TechnicalParameter nodes.
+      Each TechnicalParameter should be connected to a normalized ParameterType.
+      A TechnicalParameter may optionally be connected to a Unit.
+
+      Return both the raw extracted parameter information and the normalized vocabulary
+      grounding information.
+
+      Return only scalar properties. Do not return nodes, relationships, or paths.
+      Use only the labels, relationships, and properties listed in the system prompt.
+      Do not invent property names.
+
+      Required output columns:
+      equipment_id, product_model, raw_equipment_type, parameter_id, raw_label,
+      value, value_type, normalized_parameter_type, parameter_display_name,
+      parameter_category, unit, unit_name.
+
+  - check_id: cq3_parameter_evidence
+    description: Check which source evidence supports each extracted technical parameter.
+    expected_result_key: cq3_parameter_evidence
+    allowed_query_type: read_only
+    instruction: >
+      Generate a read-only Cypher query that answers the competency question:
+      Which source evidence supports each extracted technical parameter?
+
+      The query must retrieve equipment context, technical parameters, normalized
+      parameter types, optional units, and evidence metadata.
+
+      Required semantic paths:
+      Equipment -> HAS_PARAMETER -> TechnicalParameter.
+      TechnicalParameter -> HAS_PARAMETER_TYPE -> ParameterType.
+      TechnicalParameter -> optionally HAS_UNIT -> Unit.
+      TechnicalParameter -> EVIDENCED_BY -> Evidence.
+
+      Return only scalar properties. Do not return nodes, relationships, or paths.
+      Use only the labels, relationships, and properties listed in the system prompt.
+      Do not invent property names.
+      Every returned expression must have an explicit AS alias.
+
+      Required output columns:
+      equipment_id, product_model, parameter_id, raw_label, value,
+      normalized_parameter_type, unit, evidence_id, page_number, content_block_id,
+      source_text, evidence_type, evidence_status, confidence, extraction_method.
+
+  - check_id: cq4_vocabulary_grounding
+    description: Check whether extracted technical parameters are grounded to vocabulary concepts.
+    expected_result_key: cq4_vocabulary_grounding
+    allowed_query_type: read_only
+    instruction: >
+      Generate a read-only Cypher query that answers the competency question:
+      Which extracted technical parameters are grounded to known graph vocabulary concepts?
+
+      Use the graph semantics where each TechnicalParameter should be grounded to a
+      ParameterType. A TechnicalParameter may also be grounded to a Unit when its
+      ParameterType expects a unit.
+
+      The query should report whether parameter type grounding exists and whether unit
+      grounding exists, is missing, or is not required.
+
+      Return only scalar properties. Do not return nodes, relationships, or paths.
+      Use only the labels, relationships, and properties listed in the system prompt.
+      Do not invent property names.
+
+      Required output columns:
+      equipment_id, product_model, parameter_id, raw_label, value,
+      grounded_parameter_type, parameter_display_name,
+      parameter_type_grounding_status, grounded_unit, unit_grounding_status,
+      parameter_type_expects_unit.
+
+      Required status values:
+      parameter_type_grounding_status must be either "grounded" or "not_grounded".
+      unit_grounding_status must be one of "grounded", "missing_unit_grounding",
+      or "not_required".
+      
+      Required semantic paths:
+      Equipment -> HAS_PARAMETER -> TechnicalParameter.
+      TechnicalParameter -> optionally HAS_PARAMETER_TYPE -> ParameterType.
+      TechnicalParameter -> optionally HAS_UNIT -> Unit.
+
+  - check_id: cq5_required_parameter_status
+    description: Check whether required parameters are missing or whether extracted units are unsupported.
+    expected_result_key: cq5_required_parameter_status
+    allowed_query_type: read_only
+    instruction: >
+      Generate a read-only Cypher query that answers the competency question:
+      Which required parameters are missing, and which extracted values have unsupported
+      or missing expected units?
+
+      Use the graph semantics where RequiredParameter nodes define required ParameterType
+      nodes. Equipment nodes have TechnicalParameter nodes. TechnicalParameter nodes are
+      grounded to ParameterType nodes and may have Unit nodes. ParameterType nodes define
+      allowed units through ALLOWS_UNIT. Some ParameterType nodes have expects_unit = true.
+
+      The query should detect three issue types:
+      1. missing required parameters;
+      2. extracted units that are not allowed for the grounded ParameterType;
+      3. missing units for ParameterType nodes where expects_unit = true.
+
+      Return only scalar properties. Do not return nodes, relationships, or paths.
+      Use only the labels, relationships, and properties listed in the system prompt.
+      Do not invent property names.
+
+      Required output columns:
+      equipment_id, product_model, issue_type, parameter_type, raw_label, value,
+      unit, detail.
+
+      Required issue_type values:
+      MISSING_REQUIRED_PARAMETER, UNSUPPORTED_UNIT, MISSING_EXPECTED_UNIT.
+
+      If no issue exists, the query should return no rows.

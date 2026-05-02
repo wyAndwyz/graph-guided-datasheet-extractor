@@ -1,0 +1,1 @@
+"""Graph-shaped JSON representation models and validators."""

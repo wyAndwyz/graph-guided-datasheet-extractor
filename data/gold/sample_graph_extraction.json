@@ -1,0 +1,409 @@
+{
+  "schema_version": "0.1.0",
+  "document_id": "datasheet_vishay_temt6000x01",
+  "source_file": "data/raw/vishay_temt6000x01_datasheet.pdf",
+  "extraction_scope": "manual_gold_sample",
+  "description": "Manually prepared graph-shaped extraction sample for the Vishay TEMT6000X01 ambient light sensor datasheet.",
+  "nodes": [
+    {
+      "id": "datasheet_vishay_temt6000x01",
+      "labels": ["Datasheet"],
+      "properties": {
+        "file_name": "vishay_temt6000x01_datasheet.pdf",
+        "document_type": "TechnicalDatasheet",
+        "manufacturer": "Vishay Semiconductors",
+        "product_model": "TEMT6000X01"
+      }
+    },
+    {
+      "id": "equipment_vishay_temt6000x01",
+      "labels": ["Equipment"],
+      "properties": {
+        "manufacturer": "Vishay Semiconductors",
+        "product_model": "TEMT6000X01",
+        "raw_equipment_type": "Ambient Light Sensor"
+      }
+    },
+    {
+      "id": "run_manual_gold_001",
+      "labels": ["ExtractionRun"],
+      "properties": {
+        "method": "manual_gold_sample",
+        "status": "completed",
+        "description": "Manually prepared graph-shaped extraction for MVP testing."
+      }
+    },
+    {
+      "id": "param_product_model_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Product model",
+        "value": "TEMT6000X01",
+        "value_type": "string"
+      }
+    },
+    {
+      "id": "evidence_product_model_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_header",
+        "source_text": "TEMT6000X01",
+        "evidence_type": "document_header",
+        "evidence_status": "explicit",
+        "confidence": 1.0,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_device_type_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Device type",
+        "value": "Ambient Light Sensor",
+        "value_type": "string"
+      }
+    },
+    {
+      "id": "evidence_device_type_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_title",
+        "source_text": "Ambient Light Sensor",
+        "evidence_type": "document_title",
+        "evidence_status": "explicit",
+        "confidence": 1.0,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_package_type_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Package type",
+        "value": "surface mount",
+        "value_type": "string"
+      }
+    },
+    {
+      "id": "evidence_package_type_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_features",
+        "source_text": "Package type: surface mount",
+        "evidence_type": "feature_list",
+        "evidence_status": "explicit",
+        "confidence": 0.95,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_package_form_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Package form",
+        "value": "1206",
+        "value_type": "string"
+      }
+    },
+    {
+      "id": "evidence_package_form_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_features",
+        "source_text": "Package type: surface mount 1206",
+        "evidence_type": "feature_list",
+        "evidence_status": "explicit",
+        "confidence": 0.95,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_dimensions_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Dimensions",
+        "value": "4 x 2 x 1.05",
+        "value_type": "dimension_tuple"
+      }
+    },
+    {
+      "id": "evidence_dimensions_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_features",
+        "source_text": "Dimensions: 4 x 2 x 1.05 mm",
+        "evidence_type": "feature_list",
+        "evidence_status": "explicit",
+        "confidence": 0.95,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_peak_sensitivity_wavelength_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Peak sensitivity",
+        "value": 570,
+        "value_type": "number"
+      }
+    },
+    {
+      "id": "evidence_peak_sensitivity_wavelength_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_features",
+        "source_text": "Peak sensitivity: 570 nm",
+        "evidence_type": "feature_list",
+        "evidence_status": "explicit",
+        "confidence": 0.95,
+        "extraction_method": "manual_gold_sample"
+      }
+    },
+    {
+      "id": "param_angle_of_half_sensitivity_001",
+      "labels": ["TechnicalParameter"],
+      "properties": {
+        "raw_label": "Angle of half sensitivity",
+        "value": "±60",
+        "value_type": "range_or_signed_value"
+      }
+    },
+    {
+      "id": "evidence_angle_of_half_sensitivity_001",
+      "labels": ["Evidence"],
+      "properties": {
+        "source_document_id": "datasheet_vishay_temt6000x01",
+        "page_number": 1,
+        "content_block_id": "page_1_features",
+        "source_text": "Angle of half sensitivity: ±60°",
+        "evidence_type": "feature_list",
+        "evidence_status": "explicit",
+        "confidence": 0.95,
+        "extraction_method": "manual_gold_sample"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source": "datasheet_vishay_temt6000x01",
+      "type": "DESCRIBES",
+      "target": "equipment_vishay_temt6000x01"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_EQUIPMENT_TYPE",
+      "target_ref": {
+        "label": "EquipmentType",
+        "key": "name",
+        "value": "AmbientLightSensor"
+      }
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_product_model_001"
+    },
+    {
+      "source": "param_product_model_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "ProductModel"
+      }
+    },
+    {
+      "source": "param_product_model_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_product_model_001"
+    },
+    {
+      "source": "param_product_model_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_device_type_001"
+    },
+    {
+      "source": "param_device_type_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "DeviceType"
+      }
+    },
+    {
+      "source": "param_device_type_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_device_type_001"
+    },
+    {
+      "source": "param_device_type_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_package_type_001"
+    },
+    {
+      "source": "param_package_type_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "PackageType"
+      }
+    },
+    {
+      "source": "param_package_type_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_package_type_001"
+    },
+    {
+      "source": "param_package_type_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_package_form_001"
+    },
+    {
+      "source": "param_package_form_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "PackageForm"
+      }
+    },
+    {
+      "source": "param_package_form_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_package_form_001"
+    },
+    {
+      "source": "param_package_form_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_dimensions_001"
+    },
+    {
+      "source": "param_dimensions_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "Dimensions"
+      }
+    },
+    {
+      "source": "param_dimensions_001",
+      "type": "HAS_UNIT",
+      "target_ref": {
+        "label": "Unit",
+        "key": "symbol",
+        "value": "mm"
+      }
+    },
+    {
+      "source": "param_dimensions_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_dimensions_001"
+    },
+    {
+      "source": "param_dimensions_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_peak_sensitivity_wavelength_001"
+    },
+    {
+      "source": "param_peak_sensitivity_wavelength_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "PeakSensitivityWavelength"
+      }
+    },
+    {
+      "source": "param_peak_sensitivity_wavelength_001",
+      "type": "HAS_UNIT",
+      "target_ref": {
+        "label": "Unit",
+        "key": "symbol",
+        "value": "nm"
+      }
+    },
+    {
+      "source": "param_peak_sensitivity_wavelength_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_peak_sensitivity_wavelength_001"
+    },
+    {
+      "source": "param_peak_sensitivity_wavelength_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    },
+    {
+      "source": "equipment_vishay_temt6000x01",
+      "type": "HAS_PARAMETER",
+      "target": "param_angle_of_half_sensitivity_001"
+    },
+    {
+      "source": "param_angle_of_half_sensitivity_001",
+      "type": "HAS_PARAMETER_TYPE",
+      "target_ref": {
+        "label": "ParameterType",
+        "key": "name",
+        "value": "AngleOfHalfSensitivity"
+      }
+    },
+    {
+      "source": "param_angle_of_half_sensitivity_001",
+      "type": "HAS_UNIT",
+      "target_ref": {
+        "label": "Unit",
+        "key": "symbol",
+        "value": "degree"
+      }
+    },
+    {
+      "source": "param_angle_of_half_sensitivity_001",
+      "type": "EVIDENCED_BY",
+      "target": "evidence_angle_of_half_sensitivity_001"
+    },
+    {
+      "source": "param_angle_of_half_sensitivity_001",
+      "type": "GENERATED_BY",
+      "target": "run_manual_gold_001"
+    }
+  ]
+}

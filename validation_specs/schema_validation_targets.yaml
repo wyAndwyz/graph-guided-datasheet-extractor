@@ -1,0 +1,59 @@
+checks:
+  - check_id: parameter_type_vocabulary
+    description: Check whether all expected ParameterType nodes exist.
+    expected_result_key: parameter_types
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns all ParameterType names ordered by name.
+      The result column must be named parameter_type.
+
+  - check_id: unit_vocabulary
+    description: Check whether all expected Unit nodes exist.
+    expected_result_key: units
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns all Unit symbols ordered by symbol.
+      The result column must be named unit.
+
+# Failure case: Only returns MVP units, while expected state contains all units. 
+  # - check_id: unit_vocabulary
+  #   description: Intentional failure case. Generate a query that only returns MVP units.
+  #   expected_result_key: units
+  #   allowed_query_type: read_only
+  #   instruction: >
+  #     Generate a Cypher query that returns only Unit symbols where the Unit node has scope = "mvp".
+  #     The result must be ordered by symbol.
+  #     The result column must be named unit.
+
+  - check_id: equipment_type_vocabulary
+    description: Check whether all expected EquipmentType nodes exist.
+    expected_result_key: equipment_types
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns all EquipmentType names ordered by name.
+      The result column must be named equipment_type.
+
+  - check_id: allowed_units
+    description: Check whether ParameterType nodes are connected to allowed Unit nodes.
+    expected_result_key: allowed_units
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns each ParameterType name and a sorted list
+      of allowed Unit symbols. The result columns must be named parameter_type and allowed_units.
+
+  - check_id: required_parameters
+    description: Check whether RequiredParameter nodes are connected to the expected ParameterType nodes.
+    expected_result_key: required_parameters
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns each RequiredParameter id and the connected
+      ParameterType name. The result columns must be named required_parameter and parameter_type.
+
+  - check_id: relationship_definitions
+    description: Check whether RelationshipDefinition nodes have correct source and target concepts.
+    expected_result_key: relationship_definitions
+    allowed_query_type: read_only
+    instruction: >
+      Generate a Cypher query that returns each RelationshipDefinition name, its FROM_CONCEPT
+      name, and its TO_CONCEPT name. The result columns must be named relationship,
+      from_concept, and to_concept.

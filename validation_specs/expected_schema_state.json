@@ -1,0 +1,72 @@
+{
+  "parameter_types": [
+    "AngleOfHalfSensitivity",
+    "DeviceType",
+    "Dimensions",
+    "Manufacturer",
+    "PackageForm",
+    "PackageType",
+    "PeakSensitivityWavelength",
+    "ProductModel"
+  ],
+  "units": [
+    "V",
+    "bit",
+    "degree",
+    "g",
+    "mm",
+    "nm",
+    "µA",
+    "°C"
+  ],
+  "equipment_types": [
+    "AmbientLightSensor",
+    "DigitalAccelerometer"
+  ],
+  "allowed_units": {
+    "AngleOfHalfSensitivity": ["degree"],
+    "Dimensions": ["mm"],
+    "PeakSensitivityWavelength": ["nm"]
+  },
+  "required_parameters": {
+    "required_device_type": "DeviceType",
+    "required_dimensions": "Dimensions",
+    "required_package_form": "PackageForm",
+    "required_peak_sensitivity_wavelength": "PeakSensitivityWavelength",
+    "required_product_model": "ProductModel"
+  },
+  "relationship_definitions": {
+    "ABOUT": {
+      "from": "ValidationIssue",
+      "to": "TechnicalParameter"
+    },
+    "DESCRIBES": {
+      "from": "Datasheet",
+      "to": "Equipment"
+    },
+    "EVIDENCED_BY": {
+      "from": "TechnicalParameter",
+      "to": "Evidence"
+    },
+    "GENERATED_BY": {
+      "from": "TechnicalParameter",
+      "to": "ExtractionRun"
+    },
+    "HAS_EQUIPMENT_TYPE": {
+      "from": "Equipment",
+      "to": "Equipment"
+    },
+    "HAS_PARAMETER": {
+      "from": "Equipment",
+      "to": "TechnicalParameter"
+    },
+    "HAS_PARAMETER_TYPE": {
+      "from": "TechnicalParameter",
+      "to": "ParameterType"
+    },
+    "HAS_UNIT": {
+      "from": "TechnicalParameter",
+      "to": "Unit"
+    }
+  }
+}

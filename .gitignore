@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+outputs/*
+!outputs/**/.gitkeep
+
+data/raw/*.pdf
+data/raw/*.PDF
+
+neo4j_data/
+neo4j_logs/
