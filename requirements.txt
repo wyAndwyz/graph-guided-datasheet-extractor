@@ -6,3 +6,6 @@ pytest
 langchain
 langchain-openai
 langgraph
+pypdf
+docling
+dolphin
